@@ -1,10 +1,9 @@
 //2.15. Г={0,1,2}. Считая непустое слово P записью положительного троичного
 //        числа, уменьшить это число на 1.
 
+
 import java.util.Scanner;
-
-public class Main {
-
+public class TuringMachine2 {
     //количество элементов в линии (-2)
     static int n = 7;
     public static void main(String[] args) {
@@ -14,11 +13,11 @@ public class Main {
         //массив строк (пушто с чарами сложно)
         String[] line = new String[n];
 
-        //b - blank
-        line[0] = "b";
-        line[n - 1] = "b";
+        //_ - blank
+        line[0] = "_";
+        line[n - 1] = "_";
 
-        System.out.println("Inter " + (n-2) + " symbols - '0' '1' or '2' :");
+        System.out.println("Inter " + (n - 2) + " symbols - '0' '1' or '2' :");
         for (int i = 1; i < n - 1; i++) {
             line[i] = scanner.nextLine();
         }
@@ -62,7 +61,7 @@ public class Main {
                 show(line);
                 check(line, num, state);
                 break;
-            case "b":
+            case "_":
                 System.out.println("caret №" + num + " - blank => num++");
                 num++;
                 show(line);
@@ -96,7 +95,7 @@ public class Main {
                  show(line);
                  check(line, num, state);
                  break;
-             case "b":
+             case "_":
                  System.out.println("caret №" + num + " - blank => num--");
                  num--;
                  show(line);
@@ -165,7 +164,7 @@ public class Main {
                 show(line);
                 endY(line, num, state);
                 break;
-            case "b":
+            case "_":
                 System.out.println("caret №" + num + " - blank => number should be >=1");
                 num--;
                 show(line);
